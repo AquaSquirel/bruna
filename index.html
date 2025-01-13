@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Namorada</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe4e1;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 300px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .btn-no {
+            background-color: #ff6347;
+            color: white;
+            position: absolute;
+            right: 0px; /* Posição inicial à direita */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Você esta me amando?</h1>
+        <div class="buttons">
+            <button class="btn-yes" onclick="yesResponse()">Sim</button>
+            <button class="btn-no" onclick="noResponse()">Não</button>
+        </div>
+    </div>
+
+    <script>
+        function yesResponse() {
+            window.location.href = "/cartinha";
+        }
+
+        function noResponse() {
+            const btnNo = document.querySelector('.btn-no');
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const maxX = containerRect.width - btnNo.offsetWidth - 20; // Limite dentro do container
+            const maxY = containerRect.height - btnNo.offsetHeight - 20; // Limite dentro do container
+            const randomX = Math.floor(Math.random() * maxX) + 10; // 10px de margem
+            const randomY = Math.floor(Math.random() * maxY) + 10; // 10px de margem
+            btnNo.style.left = `${randomX}px`;
+            btnNo.style.top = `${randomY}px`;
+        }
+
+        function reset() {
+            document.querySelector('.container').innerHTML = `
+                <h1>Você me ama?</h1>
+                <div class="buttons">
+                    <button class="btn-yes" onclick="yesResponse()">Sim</button>
+                    <button class="btn-no" onclick="noResponse()">Não</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
