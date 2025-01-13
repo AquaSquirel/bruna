@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 80;
 
 // Middleware para servir arquivos estáticos
 app.use('/cartinha', express.static(path.join(__dirname, 'cartinha')));
