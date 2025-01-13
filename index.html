@@ -31,13 +31,17 @@
             position: relative;
         }
         button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto; /* Garante que o botão tenha largura automática, mas fixa */
+    height: auto; /* Garante altura fixa */
+    box-sizing: border-box; /* Evita problemas com bordas e padding */
+    transition: left 0.2s, top 0.2s; /* Anima suavemente o movimento */
+}
         .btn-yes {
             background-color: #ff69b4;
             color: white;
